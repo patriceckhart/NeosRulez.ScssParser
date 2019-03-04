@@ -1,0 +1,25 @@
+prototype(NeosRulez.ScssParser:ScssFile) < prototype(Neos.Neos:Plugin)
+prototype(NeosRulez.ScssParser:ScssFile) {
+    package = 'NeosRulez.ScssParser'
+    controller = 'ScssParser'
+    action = 'includeFile'
+    @cache {
+        mode = 'uncached'
+        context {
+            1 = 'node'
+            2 = 'documentNode'
+        }
+    }
+}
+
+prototype(Neos.Neos:Page) {
+    head {
+        NeosRulezScssParser1 = NeosRulez.ScssParser:ScssFile
+        NeosRulezScssParser1 {
+            source = 'resource://Raw.Site/Private/Styles/app.scss'
+            inline = FALSE
+            # You need outputFolder only if inline = FALSE
+            outputFolder = 'resource://Raw.Site/Public/Styles/'
+        }
+    }
+}

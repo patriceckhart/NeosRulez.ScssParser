@@ -1,0 +1,10 @@
+{namespace neos=Neos\Neos\ViewHelpers}
+{namespace fusion=Neos\Fusion\ViewHelpers}
+<f:if condition="{css}">
+    <f:then>
+        <style>{css}</style>
+    </f:then>
+    <f:else>
+        <link rel="stylesheet" href="{cssFile}" media="all" />
+    </f:else>
+</f:if>

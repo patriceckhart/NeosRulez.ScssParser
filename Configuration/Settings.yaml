@@ -5,4 +5,8 @@ Neos:
         NeosRulez.ScssParser: true
 NeosRulez:
   ScssParser:
-    hallo: 'Hallo funktioniert'
+    format: compressed
+    #format: expanded
+    #format: nested
+    #format: compact
+    #format: crunched

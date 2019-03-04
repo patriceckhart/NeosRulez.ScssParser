@@ -1,0 +1,11 @@
+privilegeTargets:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'NeosRulez.ScssParser:ScssParserControllerActions':
+      matcher: 'method(NeosRulez\ScssParser\Controller\ScssParserController->.*Action())'
+
+roles:
+  'Neos.Flow:Everybody':
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.ScssParser:ScssParserControllerActions'
+        permission: GRANT

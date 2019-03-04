@@ -22,9 +22,22 @@ class ScssParserController extends ActionController
     /**
      * @return void
      */
-    public function includeAction() {
-        #$scssFile = $this->request->getInternalArgument('__scssFile');
-        #$this->scssParserRepository->compileScss($scssFile);
+    public function includeFileAction() {
+        $scssFile = $this->request->getInternalArgument('__source');
+        $inline = $this->request->getInternalArgument('__inline');
+        $css = $this->scssParserRepository->compileScss($scssFile);
+        if($inline == TRUE) {
+            $this->view->assign('css',$css);
+        } else {
+            $outputFolder = $this->request->getInternalArgument('__outputFolder');
+            $file = $outputFolder.'app.css';
+            file_put_contents($file, $css);
+            $path = explode("/", $file);
+            $package = $path[2];
+            
+            $filepath = $path[3];
+            $this->view->assign('cssFile',$package.'/'.$filepath);
+        }
     }
 
 }
