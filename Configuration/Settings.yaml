@@ -5,4 +5,4 @@ Neos:
         NeosRulez.ScssParser: true
 NeosRulez:
   ScssParser:
-    test: 'Hallo funktioniert'
+    hallo: 'Hallo funktioniert'

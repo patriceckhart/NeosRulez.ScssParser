@@ -3,7 +3,7 @@ prototype(Neos.Neos:Page) {
         NeosRulezScssParserOutput = Neos.Fusion:Template {
             @position = 'end'
             templatePath = 'resource://NeosRulez.ScssParser/Private/Templates/ScssParser/Output.html'
-            #test = ${Configuration.setting('NeosRulez.ScssParser.test')}
+            hallo = ${Configuration.setting('NeosRulez.ScssParser.test')}
             @cache {
                 mode = 'uncached'
                 context {
