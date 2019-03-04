@@ -1,0 +1,29 @@
+{
+    "description": "A package to compile SCSS for Neos CMS",
+    "license": "GPL-3.0-or-later",
+    "type": "neos-plugin",
+    "name": "neosrulez/scssparser",
+    "authors": [
+        {
+            "name": "Patric Eckhart",
+            "email": "mail@patriceckhart.com",
+            "homepage": "http://www.patriceckhart.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes": "*",
+        "leafo/scssphp": "0.7.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeosRulez\\ScssParser\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "NeosRulez.ScssParser"
+        }
+    }
+}
