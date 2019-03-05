@@ -3,10 +3,3 @@ Neos:
     fusion:
       autoInclude:
         NeosRulez.ScssParser: true
-NeosRulez:
-  ScssParser:
-    format: compressed
-    #format: expanded
-    #format: nested
-    #format: compact
-    #format: crunched

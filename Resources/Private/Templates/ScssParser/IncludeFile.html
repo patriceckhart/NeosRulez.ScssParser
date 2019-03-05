@@ -5,6 +5,6 @@
         <style>{css}</style>
     </f:then>
     <f:else>
-        <link rel="stylesheet" href="{cssFile}" media="all" />
+        <link rel="stylesheet" href="{f:uri.resource(path: filepath, package: package)}" media="all" />
     </f:else>
 </f:if>

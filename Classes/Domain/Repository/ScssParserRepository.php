@@ -16,10 +16,20 @@ use Leafo\ScssPhp\Formatter\Compressed;
 class ScssParserRepository extends Repository
 {
 
-    public function compileScss($scssFile) {
+    public function compileScss($scssFile,$format) {
         $file = file_get_contents($scssFile);
         $scss = new Compiler();
-        $scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+        if($format=='expanded') {
+            $scss->setFormatter('Leafo\ScssPhp\Formatter\Expanded');
+        } else if($format=='nested') {
+            $scss->setFormatter('Leafo\ScssPhp\Formatter\Nested');
+        } else if($format=='compact') {
+            $scss->setFormatter('Leafo\ScssPhp\Formatter\Compact');
+        } else if($format=='crunched') {
+            $scss->setFormatter('Leafo\ScssPhp\Formatter\Crunched');
+        } else {
+            $scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+        }
         $scss = $scss->compile($file);
         return $scss;
     }

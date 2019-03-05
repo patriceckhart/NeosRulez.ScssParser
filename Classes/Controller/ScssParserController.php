@@ -25,18 +25,32 @@ class ScssParserController extends ActionController
     public function includeFileAction() {
         $scssFile = $this->request->getInternalArgument('__source');
         $inline = $this->request->getInternalArgument('__inline');
-        $css = $this->scssParserRepository->compileScss($scssFile);
+        $format = $this->request->getInternalArgument('__format');
+        $css = $this->scssParserRepository->compileScss($scssFile,$format);
         if($inline == TRUE) {
             $this->view->assign('css',$css);
         } else {
             $outputFolder = $this->request->getInternalArgument('__outputFolder');
-            $file = $outputFolder.'app.css';
+            $minfile = explode("/", $scssFile);
+            $minfile = $minfile[count($minfile)-1];
+            $minfile = explode(".", $minfile);
+            $minfile = $minfile[0].'.min.css';
+            $file = $outputFolder.$minfile;
             file_put_contents($file, $css);
             $path = explode("/", $file);
             $package = $path[2];
-            
-            $filepath = $path[3];
-            $this->view->assign('cssFile',$package.'/'.$filepath);
+            $filepath = '';
+            for($i=3; $i<count($path); $i++) {
+                if($i==count($path)-1) {
+                    $filepath .= $path[$i];
+                } else {
+                    if($i!=3) {
+                        $filepath .= $path[$i] . '/';
+                    }
+                }
+            }
+            $this->view->assign('package',$package);
+            $this->view->assign('filepath',$filepath);
         }
     }
 

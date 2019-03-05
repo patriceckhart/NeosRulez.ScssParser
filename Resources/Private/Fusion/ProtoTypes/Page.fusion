@@ -18,6 +18,11 @@ prototype(Neos.Neos:Page) {
         NeosRulezScssParser1 {
             source = 'resource://Raw.Site/Private/Styles/app.scss'
             inline = FALSE
+            format = 'compressed'
+            #format = 'expanded'
+            #format = 'nested'
+            #format = 'compact'
+            #format = 'crunched'
             # You need outputFolder only if inline = FALSE
             outputFolder = 'resource://Raw.Site/Public/Styles/'
         }
