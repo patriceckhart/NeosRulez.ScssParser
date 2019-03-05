@@ -36,7 +36,15 @@ class ScssParserController extends ActionController
             $minfile = explode(".", $minfile);
             $minfile = $minfile[0].'.min.css';
             $file = $outputFolder.$minfile;
-            file_put_contents($file, $css);
+            $sourceFileTs = filemtime($scssFile);
+            if (file_exists($file)) {
+                $targetFileTs = filemtime($file);
+                if($sourceFileTs>$targetFileTs) {
+                    file_put_contents($file, $css);
+                }
+            } else {
+                file_put_contents($file, $css);
+            }
             $path = explode("/", $file);
             $package = $path[2];
             $filepath = '';
