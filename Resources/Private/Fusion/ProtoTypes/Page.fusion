@@ -11,20 +11,3 @@ prototype(NeosRulez.ScssParser:ScssFile) {
         }
     }
 }
-
-prototype(Neos.Neos:Page) {
-    head {
-        NeosRulezScssParser1 = NeosRulez.ScssParser:ScssFile
-        NeosRulezScssParser1 {
-            source = 'resource://Raw.Site/Private/Styles/app.scss'
-            inline = FALSE
-            format = 'compressed'
-            #format = 'expanded'
-            #format = 'nested'
-            #format = 'compact'
-            #format = 'crunched'
-            # You need outputFolder only if inline = FALSE
-            outputFolder = 'resource://Raw.Site/Public/Styles/'
-        }
-    }
-}

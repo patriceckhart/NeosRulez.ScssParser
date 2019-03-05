@@ -1,10 +1,1 @@
-{namespace neos=Neos\Neos\ViewHelpers}
-{namespace fusion=Neos\Fusion\ViewHelpers}
-<f:if condition="{css}">
-    <f:then>
-        <style>{css}</style>
-    </f:then>
-    <f:else>
-        <link rel="stylesheet" href="{f:uri.resource(path: filepath, package: package)}" media="all" />
-    </f:else>
-</f:if>
+{namespace neos=Neos\Neos\ViewHelpers}{namespace fusion=Neos\Fusion\ViewHelpers}<f:if condition="{css}"><f:then><style>{css}</style></f:then><f:else><link rel="stylesheet" href="{f:uri.resource(path: filepath, package: package)}" media="all" /></f:else></f:if>
