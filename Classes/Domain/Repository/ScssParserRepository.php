@@ -45,7 +45,8 @@ class ScssParserRepository extends Repository
         $part2 = str_replace($part1,'', $realPath);
         $realPath1 = $serverPath.'Packages/Application/'.$part1.'/Resources'.$part2;
         $realPath2 = $serverPath.'Packages/Plugins/'.$part1.'/Resources'.$part2;
-        $result = array($realPath1,$realPath2);
+        $realPath3 = $serverPath.'Packages/Sites/'.$part1.'/Resources'.$part2;
+        $result = array($realPath1,$realPath2,$realPath3);
         return $result;
     }
 
