@@ -18,8 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Leafo\\ScssPhp\\": "lib/overrides/leafo/scssphp/src/",
-            "NeosRulez\\ScssParser\\": "Classes/"
+            "NeosRulez\\ScssParser\\": "Classes/",
+            "Leafo\\ScssPhp\\": "lib/overrides/leafo/scssphp/src/"
         }
     },
     "extra": {
