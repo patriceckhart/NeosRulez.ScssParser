@@ -21,6 +21,7 @@ class ScssParserController extends ActionController
 
     /**
      * @return void
+     * @Flow\SkipCsrfProtection
      */
     public function includeFileAction() {
         $scssFile = $this->request->getInternalArgument('__source');
