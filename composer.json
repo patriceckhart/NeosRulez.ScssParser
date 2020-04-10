@@ -19,7 +19,7 @@
     "autoload": {
         "psr-4": {
             "NeosRulez\\ScssParser\\": "Classes/",
-            "Leafo\\ScssPhp\\": "lib/overrides/leafo/scssphp/src/"
+            "ScssPhp\\ScssPhp\\": "lib/overrides/scssphp/scssphp/src/"
         }
     },
     "extra": {

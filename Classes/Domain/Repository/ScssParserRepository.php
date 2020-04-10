@@ -7,8 +7,8 @@ namespace NeosRulez\ScssParser\Domain\Repository;
 
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Persistence\Repository;
-use Leafo\ScssPhp\Compiler;
-use Leafo\ScssPhp\Formatter\Compressed;
+use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\Formatter\Compressed;
 
 /**
  * @Flow\Scope("singleton")
@@ -21,15 +21,15 @@ class ScssParserRepository extends Repository
 
         $scss = new Compiler();
         if($format=='expanded') {
-            $scss->setFormatter('Leafo\ScssPhp\Formatter\Expanded');
+            $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Expanded');
         } else if($format=='nested') {
-            $scss->setFormatter('Leafo\ScssPhp\Formatter\Nested');
+            $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Nested');
         } else if($format=='compact') {
-            $scss->setFormatter('Leafo\ScssPhp\Formatter\Compact');
+            $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Compact');
         } else if($format=='crunched') {
-            $scss->setFormatter('Leafo\ScssPhp\Formatter\Crunched');
+            $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Crunched');
         } else {
-            $scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+            $scss->setFormatter('ScssPhp\ScssPhp\Formatter\Compressed');
         }
         $importPath = $this->getImportPaths($scssFile);
         $scss->setImportPaths($importPath);
