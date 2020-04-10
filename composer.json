@@ -14,7 +14,7 @@
     "require": {
         "neos/neos": "*",
         "neos/nodetypes": "*",
-        "leafo/scssphp": "0.8.4"
+        "scssphp/scssphp": "1.0.9"
     },
     "autoload": {
         "psr-4": {
