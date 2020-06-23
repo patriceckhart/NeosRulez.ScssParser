@@ -4,10 +4,17 @@ prototype(NeosRulez.ScssParser:ScssFile) {
     controller = 'ScssParser'
     action = 'includeFile'
     @cache {
-        mode = 'uncached'
+        mode = 'dynamic'
+        entryIdentifier {
+            node = ${node}
+        }
+        entryDiscriminator = ${request.arguments.pagination}
         context {
             1 = 'node'
             2 = 'documentNode'
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
         }
     }
 }
