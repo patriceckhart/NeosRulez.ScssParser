@@ -15,9 +15,9 @@ class ScssParserController extends ActionController
 
     /**
      * @Flow\Inject
-     * @var \NeosRulez\ScssParser\Domain\Repository\ScssParserRepository
+     * @var \NeosRulez\ScssParser\Domain\Factory\ScssParserFactory
      */
-    protected $scssParserRepository;
+    protected $scssParserFactory;
 
     /**
      * @return void
@@ -28,7 +28,7 @@ class ScssParserController extends ActionController
         $inline = $this->request->getInternalArgument('__inline');
         $format = $this->request->getInternalArgument('__format');
         if($inline == TRUE) {
-            $css = $this->scssParserRepository->compileScss($scssFile,$format);
+            $css = $this->scssParserFactory->compileScss($scssFile,$format);
             $this->view->assign('css',$css);
         } else {
             $outputFolder = $this->request->getInternalArgument('__outputFolder');
@@ -41,11 +41,11 @@ class ScssParserController extends ActionController
             if (file_exists($file)) {
                 $targetFileTs = filemtime($file);
                 if($sourceFileTs>$targetFileTs) {
-                    $css = $this->scssParserRepository->compileScss($scssFile,$format);
+                    $css = $this->scssParserFactory->compileScss($scssFile,$format);
                     file_put_contents($file, $css);
                 }
             } else {
-                $css = $this->scssParserRepository->compileScss($scssFile,$format);
+                $css = $this->scssParserFactory->compileScss($scssFile,$format);
                 file_put_contents($file, $css);
             }
             $path = explode("/", $file);

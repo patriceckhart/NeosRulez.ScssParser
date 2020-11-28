@@ -1,19 +1,18 @@
 <?php
-namespace NeosRulez\ScssParser\Domain\Repository;
+namespace NeosRulez\ScssParser\Domain\Factory;
 
 /*
  * This file is part of the NeosRulez.ScssParser package.
  */
 
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Persistence\Repository;
 use ScssPhp\ScssPhp\Compiler;
 use ScssPhp\ScssPhp\Formatter\Compressed;
 
 /**
  * @Flow\Scope("singleton")
  */
-class ScssParserRepository extends Repository
+class ScssParserFactory
 {
 
     public function compileScss($scssFile,$format) {
